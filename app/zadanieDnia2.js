@@ -6,17 +6,17 @@ const algorythms = ['aes192', 'aes-256-cbc', 'aes-256-ecb'];
 const crypto = require('crypto');
 
 algorythms.forEach(alg => {
-		const decipher = crypto.createDecipher(alg, password);
-		let decrypted = decipher.update(ENCRYPTED_TEXT, 'hex', 'utf8');
+  const decipher = crypto.createDecipher(alg, password);
+  let decrypted = decipher.update(ENCRYPTED_TEXT, 'hex', 'utf8');
 
-		try {
-				decrypted += decipher.final('utf8');
-				console.log("Prawidłowy algorytm: " + alg);
-				console.log(decrypted);
-		}
+  try {
+    decrypted += decipher.final('utf8');
+    console.log("Prawidłowy algorytm: " + alg);
+    console.log(decrypted);
+  }
 
-		catch {
-				console.log("Nieprawidłowy algorytm: " + alg);
-		}
+  catch {
+    console.log("Nieprawidłowy algorytm: " + alg);
+  }
 
 })
